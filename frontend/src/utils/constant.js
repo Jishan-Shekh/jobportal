@@ -1,5 +1,8 @@
 const API_BASE_URL = (
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1"
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.PROD
+    ? "https://jobportal-luit.onrender.com/api/v1"
+    : "http://localhost:8000/api/v1")
 ).replace(/\/+$/, "");
 
 export const USER_API_END_POINT = `${API_BASE_URL}/user`;

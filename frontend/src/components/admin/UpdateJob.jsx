@@ -87,7 +87,7 @@ const UpdateJob = () => {
 
             <Navbar />
 
-            <div className="max-w-xl mx-auto my-10">
+            <div className="mx-auto my-6 max-w-xl px-4 sm:my-10">
 
                 <h1 className="font-bold text-2xl mb-5">
                     Update Job
@@ -95,7 +95,7 @@ const UpdateJob = () => {
 
                 <form onSubmit={submitHandler}>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 
                         <div>
                             <Label>Title</Label>
@@ -130,7 +130,8 @@ const UpdateJob = () => {
                         <div>
                             <Label>Salary</Label>
                             <Input
-                                type="number"
+                                type="text"
+                                placeholder="e.g. ₹4 LPA – ₹7 LPA"
                                 name="salary"
                                 value={input.salary}
                                 onChange={changeHandler}
@@ -160,7 +161,8 @@ const UpdateJob = () => {
                         <div>
                             <Label>Experience</Label>
                             <Input
-                                type="number"
+                                type="text"
+                                placeholder="e.g. 0-2"
                                 name="experience"
                                 value={input.experience}
                                 onChange={changeHandler}

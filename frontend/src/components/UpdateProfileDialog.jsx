@@ -75,7 +75,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
 
   return (
     <Dialog open={open}>
-      <DialogContent onInteractOutside={() => setOpen(false)}>
+      <DialogContent className="max-h-[90vh] w-[calc(100%-2rem)] overflow-y-auto sm:max-w-lg" onInteractOutside={() => setOpen(false)}>
         <DialogHeader>
           <DialogTitle>Update Profile</DialogTitle>
         </DialogHeader>
@@ -83,64 +83,64 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         <form onSubmit={submitHandler}>
           <div className="grid gap-4 py-4">
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right">Name</Label>
+            <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-4 sm:gap-4">
+              <Label className="sm:text-right">Name</Label>
               <Input
                 name="fullname"
                 value={input.fullname}
                 onChange={changeEventHandler}
-                className="col-span-3"
+                className="sm:col-span-3"
               />
             </div>
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right">Email</Label>
+            <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-4 sm:gap-4">
+              <Label className="sm:text-right">Email</Label>
               <Input
                 name="email"
                 value={input.email}
                 onChange={changeEventHandler}
-                className="col-span-3"
+                className="sm:col-span-3"
               />
             </div>
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right">Phone</Label>
+            <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-4 sm:gap-4">
+              <Label className="sm:text-right">Phone</Label>
               <Input
                 name="phoneNumber"
                 value={input.phoneNumber}
                 onChange={changeEventHandler}
-                className="col-span-3"
+                className="sm:col-span-3"
               />
             </div>
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right">Bio</Label>
+            <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-4 sm:gap-4">
+              <Label className="sm:text-right">Bio</Label>
               <Input
                 name="bio"
                 value={input.bio}
                 onChange={changeEventHandler}
-                className="col-span-3"
+                className="sm:col-span-3"
               />
             </div>
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right">Skills</Label>
+            <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-4 sm:gap-4">
+              <Label className="sm:text-right">Skills</Label>
               <Input
                 name="skills"
                 value={input.skills}
                 onChange={changeEventHandler}
                 placeholder="HTML,CSS,JS"
-                className="col-span-3"
+                className="sm:col-span-3"
               />
             </div>
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right">Resume</Label>
+            <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-4 sm:gap-4">
+              <Label className="sm:text-right">Resume</Label>
               <Input
                 type="file"
                 accept="application/pdf"
                 onChange={fileChangeHandler}
-                className="col-span-3"
+                className="sm:col-span-3"
               />
             </div>
 

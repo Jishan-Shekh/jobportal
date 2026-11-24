@@ -21,10 +21,10 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8">
-        <div className="flex justify-between">
+      <div className="mx-auto my-5 max-w-4xl rounded-2xl border border-gray-200 bg-white p-4 sm:p-8">
+        <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Avatar className="h-24 w-24">
+            <Avatar className="h-16 w-16 sm:h-24 sm:w-24">
               <AvatarImage
                 src={
                   user?.profile?.profilePhoto
@@ -35,7 +35,7 @@ const Profile = () => {
               />
             </Avatar>
             <div>
-              <h1 className="font-medium text-xl">{user?.fullname}</h1>
+              <h1 className="break-words font-medium text-lg sm:text-xl">{user?.fullname}</h1>
               <p>{user?.profile?.bio}</p>
             </div>
           </div>
@@ -50,7 +50,7 @@ const Profile = () => {
         <div className="my-5">
           <div className="flex items-center gap-3 my-2">
             <Mail />
-            <span>{user?.email}</span>
+            <span className="break-all">{user?.email}</span>
           </div>
           <div className="flex items-center gap-3 my-2">
             <Contact />
@@ -59,7 +59,7 @@ const Profile = () => {
         </div>
         <div className="my-5">
           <h1>Skills</h1>
-          <div className="flex items-center gap-1">
+          <div className="flex flex-wrap items-center gap-1">
             {user?.profile?.skills.length !== 0 ? (
               user?.profile?.skills.map((item, index) => (
                 <Badge key={index}>{item}</Badge>
@@ -75,7 +75,7 @@ const Profile = () => {
             <a
               target="blank"
               href={user?.profile?.resume}
-              className="text-blue-500 w-full hover:underline cursor-pointer"
+              className="w-full cursor-pointer break-all text-blue-500 hover:underline"
             >
               {user?.profile?.resumeOriginalName}
             </a>
@@ -84,7 +84,7 @@ const Profile = () => {
           )}
         </div>
       </div>
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl">
+      <div className="mx-auto max-w-4xl bg-white px-4 sm:px-0">
         <h1 className="font-bold text-lg my-5">Applied Jobs</h1>
         {/* Applied Job Table   */}
         <AppliedJobTable />

@@ -63,10 +63,10 @@ const Login = () => {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="mx-auto flex max-w-7xl items-center justify-center px-4">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border border-gray-200 rounded-md p-4 my-10"
+          className="my-8 w-full max-w-md rounded-md border border-gray-200 p-4 sm:my-10 sm:p-6 md:max-w-lg"
         >
           <h1 className="font-bold text-xl mb-5">Login</h1>
           <div className="my-2">
@@ -91,7 +91,7 @@ const Login = () => {
             />
           </div>
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-6 my-5">
+            <div className="my-5 flex flex-wrap items-center gap-4 sm:gap-6">
               <div className="flex items-center gap-2">
                 <input
                   type="radio"

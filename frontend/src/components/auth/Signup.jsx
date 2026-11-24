@@ -87,10 +87,10 @@ const Signup = () => {
     >
       <Navbar />
 
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="mx-auto flex max-w-7xl items-center justify-center px-4">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border p-4 my-10 rounded-md"
+          className="my-8 w-full max-w-md rounded-md border p-4 sm:my-10 sm:p-6 md:max-w-lg"
         >
           <h1 className="font-bold text-xl mb-5">Sign Up</h1>
 
@@ -135,7 +135,7 @@ const Signup = () => {
             />
           </div>
 
-          <RadioGroup className="flex gap-4 my-5">
+          <RadioGroup className="my-5 flex flex-wrap gap-4">
             <div className="flex items-center gap-2">
               <Input
                 type="radio"

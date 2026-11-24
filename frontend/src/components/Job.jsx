@@ -4,6 +4,7 @@ import { Bookmark } from 'lucide-react'
 import { Avatar, AvatarImage } from './ui/avatar'
 import { Badge } from './ui/badge'
 import { useNavigate } from 'react-router-dom'
+import { formatSalary } from '@/lib/utils'
 
 const Job = ({job}) => {
     const navigate = useNavigate();
@@ -30,21 +31,21 @@ const Job = ({job}) => {
                     </Avatar>
                 </Button>
                 <div>
-                    <h1 className='font-medium text-lg'>{job?.company?.name}</h1>
+                    <h1 className='break-words font-medium text-lg'>{job?.company?.name}</h1>
                     <p className='text-sm text-gray-500'>India</p>
                 </div>
             </div>
 
             <div>
-                <h1 className='font-bold text-lg my-2'>{job?.title}</h1>
-                <p className='text-sm text-gray-600'>{job?.description}</p>
+                <h1 className='my-2 break-words font-bold text-lg'>{job?.title}</h1>
+                <p className='break-words text-sm text-gray-600'>{job?.description}</p>
             </div>
-            <div className='flex items-center gap-2 mt-4'>
+            <div className='mt-4 flex flex-wrap items-center gap-2'>
                 <Badge className={'text-blue-700 font-bold'} variant="ghost">{job?.position} Positions</Badge>
                 <Badge className={'text-[#F83002] font-bold'} variant="ghost">{job?.jobType}</Badge>
-                <Badge className={'text-[#7209b7] font-bold'} variant="ghost">{job?.salary}LPA</Badge>
+                <Badge className={'whitespace-normal break-words text-[#7209b7] font-bold'} variant="ghost">{formatSalary(job?.salary)}</Badge>
             </div>
-            <div className='flex items-center gap-4 mt-4'>
+            <div className='mt-4 flex flex-wrap items-center gap-3'>
                 <Button onClick={()=> navigate(`/description/${job?._id}`)} variant="outline">Details</Button>
                 <Button className="bg-[#7209b7]">Save For Later</Button>
             </div>

@@ -5,10 +5,12 @@ export const postJob = async (req, res) => {
     try {
         const { title, description, requirements, salary, location, jobType, experience, position, companyId } = req.body;
         const userId = req.id;
+        const salaryText = String(salary ?? "").trim();
+        const experienceLevel = String(experience ?? "").trim();
 
-        if (!title || !description || !requirements || !salary || !location || !jobType || !experience || !position || !companyId) {
+        if (!title || !description || !requirements || !salaryText || !location || !jobType || !experienceLevel || !position || !companyId) {
             return res.status(400).json({
-                message: "Somethin is missing.",
+                message: "Please provide all required fields, including salary and experience.",
                 success: false
             })
         };
@@ -16,10 +18,10 @@ export const postJob = async (req, res) => {
             title,
             description,
             requirements: requirements.split(","),
-            salary: Number(salary),
+            salary: salaryText,
             location,
             jobType,
-            experienceLevel: experience,
+            experienceLevel,
             position,
             company: companyId,
             created_by: userId
@@ -116,14 +118,23 @@ export const updateJob = async (req, res) => {
             position
         } = req.body;
 
+        const salaryText = String(salary ?? "").trim();
+        const experienceLevel = String(experience ?? "").trim();
+        if (!salaryText || !experienceLevel) {
+            return res.status(400).json({
+                message: "Salary and experience are required.",
+                success: false
+            });
+        }
+
         const updateData = {
             title,
             description,
             requirements: requirements.split(","),
-            salary,
+            salary: salaryText,
             location,
             jobType,
-            experienceLevel: experience,
+            experienceLevel,
             position
         };
 

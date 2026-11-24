@@ -38,7 +38,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className='flex items-center justify-between mx-auto max-w-7xl h-16'>
+            <div className='mx-auto flex min-h-16 max-w-7xl flex-col gap-3 px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between'>
                 
                 {/* Logo */}
                 <h1 className='text-2xl font-bold'>
@@ -46,8 +46,8 @@ const Navbar = () => {
                 </h1>
 
                 {/* Menu */}
-                <div className='flex items-center gap-12'>
-                    <ul className='flex font-medium items-center gap-5'>
+                <div className='flex w-full flex-wrap items-center justify-between gap-3 md:w-auto md:gap-8'>
+                    <ul className='flex flex-wrap items-center gap-3 text-sm font-medium sm:gap-5 sm:text-base'>
                         {user && user.role === 'recruiter' ? (
                             <>
                                 <li><Link to="/admin/companies">Companies</Link></li>

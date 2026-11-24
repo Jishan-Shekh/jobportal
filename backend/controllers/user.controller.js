@@ -4,6 +4,18 @@ import jwt from "jsonwebtoken";
 import getDataUri from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
 
+const getAuthCookieOptions = () => {
+  const isProduction = process.env.NODE_ENV === "production";
+
+  return {
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    path: "/",
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
+  };
+};
+
 export const register = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, password, role } = req.body;
@@ -100,18 +112,14 @@ export const login = async (req, res) => {
       _id: user._id,
       fullname: user.fullname,
       email: user.email,
+      phoneNumber: user.phoneNumber,
       role: user.role,
       profile: user.profile,
     };
 
     return res
       .status(200)
-      .cookie("token", token, {
-        maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: true,
-        sameSite: "lax",
-        secure: false,
-      })
+      .cookie("token", token, getAuthCookieOptions())
       .json({
         message: `Welcome back ${user.fullname}`,
         success: true,
@@ -123,10 +131,13 @@ export const login = async (req, res) => {
 };
 export const logout = async (req, res) => {
   try {
-    return res.status(200).cookie("token", "", { maxAge: 0 }).json({
-      message: "Logged out successfully.",
-      success: true,
-    });
+    return res
+      .status(200)
+      .cookie("token", "", { ...getAuthCookieOptions(), maxAge: 0 })
+      .json({
+        message: "Logged out successfully.",
+        success: true,
+      });
   } catch (error) {
     console.log(error);
   }

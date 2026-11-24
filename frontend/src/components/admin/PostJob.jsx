@@ -62,9 +62,9 @@ const PostJob = () => {
     return (
         <div>
             <Navbar />
-            <div className='flex items-center justify-center w-screen my-5'>
-                <form onSubmit = {submitHandler} className='p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md'>
-                    <div className='grid grid-cols-2 gap-2'>
+            <div className='my-5 flex w-full items-center justify-center px-4'>
+                <form onSubmit = {submitHandler} className='w-full max-w-4xl rounded-md border border-gray-200 p-4 shadow-lg sm:p-8'>
+                    <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
                         <div>
                             <Label>Title</Label>
                             <Input
@@ -99,6 +99,7 @@ const PostJob = () => {
                             <Label>Salary</Label>
                             <Input
                                 type="text"
+                                placeholder="e.g. ₹4 LPA – ₹7 LPA"
                                 name="salary"
                                 value={input.salary}
                                 onChange={changeEventHandler}
@@ -129,6 +130,7 @@ const PostJob = () => {
                             <Label>Experience Level</Label>
                             <Input
                                 type="text"
+                                placeholder="e.g. 0-2"
                                 name="experience"
                                 value={input.experience}
                                 onChange={changeEventHandler}
@@ -148,7 +150,7 @@ const PostJob = () => {
                         {
                             companies.length > 0 && (
                                 <Select onValueChange={selectChangeHandler}>
-                                    <SelectTrigger className="w-[180px]">
+                                    <SelectTrigger className="w-full sm:col-span-2">
                                         <SelectValue placeholder="Select a Company" />
                                     </SelectTrigger>
                                     <SelectContent>

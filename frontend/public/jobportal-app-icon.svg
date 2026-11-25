@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">JobPortal app icon</title>
+  <desc id="desc">A compact teal-to-indigo location pin with a person and rising career path, centered on a rounded square background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="48" y1="32" x2="464" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#172B52"/>
+      <stop offset="1" stop-color="#101A35"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="125" y1="92" x2="385" y2="404" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22C7B8"/>
+      <stop offset="1" stop-color="#4167E8"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg)"/>
+  <path d="M256 74c-91 0-165 74-165 165 0 116 165 235 165 235s165-119 165-235c0-91-74-165-165-165Z" fill="url(#mark)"/>
+  <circle cx="224" cy="196" r="35" fill="#fff"/>
+  <path d="M151 318v-45c0-17 14-31 31-31h84c17 0 31 14 31 31v45" fill="none" stroke="#fff" stroke-width="23" stroke-linecap="round"/>
+  <path d="m263 322 43-44 34 25 54-69" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M365 234h29v29" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
